@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>塔可的统计网站</title>
+  
+<link rel="stylesheet" type="text/css" href="CSS/daohanglan.css">
+<link rel="stylesheet" type="text/css" href="CSS/zhengti.css">
+<link rel="stylesheet" type="text/css" href="CSS/zuoyoulan.css">
+<link rel="stylesheet" type="text/css" href="CSS/dibu.css">
+<link rel="stylesheet" type="text/css" href="CSS/biaoge.css">
+<link rel="stylesheet" type="text/css" href="CSS/shurukuang.css">
+<link rel="stylesheet" type="text/css" href="CSS/xiangying.css">
+<link rel="stylesheet" type="text/css" href="CSS/huandengpian.css">
+  <style>
+img
+{
+  position:absolute;
+}
+
+  </style>
+</head>
+
+<body>
+
+
+<div class="header">
+<div id="times"></div>
+
+<h1 style="text-shadow: 2px 2px #66ccff;">新冠肺炎数据统计</h1>  <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">
+                    <i class="fas fa-globe-americas"></i> Hopkins University's Beautiful map here.
+                  </a>
+                </li>
+              </ul>
+            </div>
+</div>
+
+
+
+
+<div class="topnav">
+<a href="index.html">首页</a>
+<a href="map.html">世界疫情地图</a>
+<a href="web02.html">tag2</a>
+<a href="web03.html">tag3</a>
+<a href="web04.html">tag4</a>
+<a href="web05.html">tag5</a>
+ <audio controls style="float: right;">
+ <source src="play.flac" type="audio/mpeg">
+您的浏览器不支持音乐 快用Chrome试试塔可最喜欢的歌曲
+</audio> 
+</div>
+ 
+
+<div class="row">
+
+ <div class="leftcolumn">
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+             <img src="p1.jpg" style="width:100%">
+        </div>
+ 
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+             <img src="p2.jpg" style="width:100%">
+        </div>
+ 
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+            <img src="p3.jpg" style="width:100%">
+        </div>
+ 
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+<br>
+ 
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+
+
+
+   <div class="card">
+      <h2>日期选择</h2>
+     <div  style="padding-left: 40px;"> 
+       <form>
+        <input type="text" id="inputdate">
+      </form>
+      <button type="button" onclick="myFunction()">确认</button>
+      <p><b>请在此输入日期:</b><br> 
+      </p>
+      <p id="lala"></p>
+    </div>
+   </div> 
+   
+   
+    <div class="card">
+      <h2>疫情</h2>
+      <h5 id="显示日期"></h5>
+      <table>
+        <tr>
+          <tr>
+            <td>现有确诊病例</td>
+            <td id="现有确诊病例"></td>
+          </tr> 
+          <tr>
+            <td>现有疑似病例</td>
+            <td id="现有疑似病例"></td>
+          </tr> 
+          <tr>
+            <td>现有重症病例</td>
+            <td id="现有重症病例"></td>
+          </tr> 
+          <tr>
+            <td>累计确诊病例</td>
+            <td id="累计确诊病例"></td>
+          </tr>
+          <tr>
+            <td>治愈病例</td>
+            <td id="治愈病例"></td>
+          </tr>
+          <tr>
+            <td>死亡病例</td>
+            <td id="死亡病例"></td>
+          </tr>
+          
+          
+        </tr>
+
+
+      </table>
+    </div>
+
+  </div>
+
+
+
+  <div class="rightcolumn">
+
+
+    <div class="card">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/papaparse@5.1.1/papaparse.min.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" crossorigin></script>
+
+      <h2>COVID-19新型冠状病毒走势</h2>
+     <div class="container-fluid">
+
+      <div class="row mb-1">
+        <div class="col-sm">
+          <div id="root"></div>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-sm">
+          </small>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="card">
+      <h2>疫情地图</h2>
+      <div id="chinamap" style="width: 600px;height: 450px;margin: 0px auto">     </div>
+      <div id="chinamap1" style="display: none;width: 600px;height: 450px;margin: 0px auto">     </div>
+      <div id="chinamap2" style="display: none;width: 600px;height: 450px;margin: 0px auto">     </div>
+        <script src="JS/china.js"></script>
+        <script src="JS/chinamap.js"></script>
+        <script src="JS/chinamap1.js"></script> 
+        <script src="JS/chinamap2.js"></script> 
+      <button type="button" onclick="divSW()">现有确诊病例</button>
+      <button type="button" onclick="divSW1()">累计确诊病例</button>
+      <button type="button" onclick="divSW2()">累计死亡病例</button>
+     <script>
+var dv = document.getElementById( "chinamap" );
+var dv1 = document.getElementById( "chinamap1" );
+var dv2 = document.getElementById( "chinamap2" );
+function divSW() {
+       dv.style.display = "block";
+       dv1.style.display = "none"; 
+       dv2.style.display = "none"; 
+   }
+function divSW1() {
+       dv.style.display = "none"; 
+       dv1.style.display = "block";
+       dv2.style.display = "none";
+   }        
+function divSW2() {
+       dv.style.display = "none"; 
+       dv1.style.display = "none";
+       dv2.style.display = "block";
+   }   
+    </script>
+      
+    </div>
+ 
+  </div>
+</div>
+
+
+<script>
+  //得到时间并写入div
+             function getDate(){
+                 //获取当前时间
+                 var date = new Date();
+                 //格式化为本地时间格式
+                 var date1 = date.toLocaleString();
+                 //获取div
+                 document.getElementById("times").innerHTML=date1;
+             }
+             //使用定时器每秒向div写入当前时间
+             setInterval("getDate()",1000);
+
+    </script>
+    <!-- Load dependencies. -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<!--    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>-->
+<!--    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>-->
+
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/papaparse@5.1.1/papaparse.min.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" crossorigin></script>
+
+    <!-- Load custom scripts. -->
+    <script src="js/utils.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #11cf70;
+}
+ 
+#times {
+  float: right;
+}
+
+
+/* 头部标题 */
+.header {
+  padding-left: 30px;
+  background: #eb23af;
+}
+ 
+.header h1 {
+  font-size: 50px;
+}
