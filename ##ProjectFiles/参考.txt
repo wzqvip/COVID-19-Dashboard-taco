@@ -1,0 +1,15 @@
+折线图(主页)
+https://trekhleb.dev/covid-19/
+使用了该网站的javascript
+
+每个标签页生成的地图
+https://blog.csdn.net/sgzqc/article/details/119359143
+使用pyecharts制作疫情地图
+
+疫情数据来源
+https://api.inews.qq.com/newsqa/v1/automation/foreign/country/ranklist
+腾讯
+
+霍普金斯疫情数据
+https://coronavirus-19-api.herokuapp.com/countries
+参考
