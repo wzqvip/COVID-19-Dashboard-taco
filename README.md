@@ -1,5 +1,12 @@
 # COVID-19 Dashboard-taco
- it seens to be a dashboard. 
+ it seens to be a dashboard.
+ 
+ 
+2022/6/6 未使用的pack里面存在高风险内容，妥善处理 
+ Prototype Pollution in async High
+#3 opened 3 days ago • Detected in async (npm) • 未使用内容/package-lock.json
+Prototype Pollution in minimist Critical
+#1 opened 2 months ago • Detected in minimist (npm) • 未使用内容/package-lock.json
 
 SI100B bonus 
 
